@@ -115,6 +115,8 @@ Friday team meeting, and reported in [core team notes]. Every
 accepted feature should have a core team champion, who will represent
 the feature and its progress.
 
-**HTMLNext's RFC process owes its inspiration to the [Ember RFC process]**
+**HTMLNext's RFC process owes its inspiration to both the [Ember RFC process]
+and [Rust RFC process].**
 
 [Ember RFC process]: https://github.com/emberjs/rfcs
+[Rust RFC process]: https://github.com/rust-lang/rfcs
