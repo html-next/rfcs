@@ -15,13 +15,13 @@ Use semver for version control of the flexi addons (as opposed to lock-step).
 * Users aren't forced to update all flexi addons when they only want changes
   from one
   - Example:
-    * We add a feature to addon A and make a breaking change to addon B.
-    * Release
-    * User wants the feature from addon A, but doesn't care about the new
-      features in addon B.
-    * User either has to deal with the breaking changes from addon B, or ignore
-      the version warnings until they do. We needlessly annoy the user with said
-      warnings.
+    1. We add a feature to addon A and make a breaking change to addon B.
+    2. Release
+    3. User wants the feature from addon A, but doesn't care about the new
+       features in addon B.
+    4. User either has to deal with the breaking changes from addon B, or ignore
+       the version warnings until they do. We needlessly annoy the user with said
+       warnings.
 
 # Detailed design
 
@@ -29,18 +29,20 @@ Use [the semver package](https://www.npmjs.com/package/semver) in the main flexi
 repo to do interdependency checks between versions. Warn the user when there is
 a minor version mismatches, error when there is a major version mismatch.
 
-### Example
+### Example 1
 
-* flexi-dsl adds a new attribute, gets a minor version bump to v2.5.0
-* flexi-default-styles adds a CSS class for said attribute, gets a minor version
-  bump to v2.2.0
-* flexi repo warns the user if they have flexi-dsl >= v2.5.0 but
-  flexi-default-styles <= v2.2.0
+1. flexi-dsl adds a new attribute, gets a minor version bump to v2.5.0
+2. flexi-default-styles adds a CSS class for said attribute, gets a minor version
+   bump to v2.2.0
+3. flexi repo warns the user if they have flexi-dsl >= v2.5.0 but
+   flexi-default-styles <= v2.2.0
 
-* flexi-layouts changes the name of components, major version bump to v3.0.0
-* flexi-dsl accommodates the change, major version bump to v3.0.0
-* flexi errors if the user has flexi-dsl >= 3.0.0 but flexi-layouts <= 3.0.0, or
-  vice versa.
+### Example 2
+
+1. flexi-layouts changes the name of components, major version bump to v3.0.0
+2. flexi-dsl accommodates the change, major version bump to v3.0.0
+3. flexi errors if the user has flexi-dsl >= 3.0.0 but flexi-layouts <= 3.0.0, or
+   vice versa.
 
 ### Initial spike
 
